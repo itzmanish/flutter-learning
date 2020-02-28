@@ -159,7 +159,7 @@ class _TipCalculatorState extends State<TipCalculator> {
                       Padding(
                         padding: const EdgeInsets.all(18.0),
                         child: Text(
-                          "\$${calculateTotalTip(_billAmount, _tipPercent)}",
+                          "\$${calculateTotalTip(_billAmount, _tipPercent).toStringAsFixed(2)}",
                           style: TextStyle(
                               color: _purple,
                               fontWeight: FontWeight.bold,
