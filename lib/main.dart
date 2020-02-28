@@ -1,4 +1,4 @@
-import 'package:first/ui/movie/home.dart';
+import 'package:first/ui/movie/movielist.dart';
 // import 'package:first/ui/tipcalculator.dart';
 import 'package:flutter/material.dart';
 
