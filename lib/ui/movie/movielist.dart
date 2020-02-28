@@ -1,4 +1,5 @@
 import 'package:first/model/movie.dart';
+import 'package:first/ui/movie/moviedetails.dart';
 import 'package:flutter/material.dart';
 
 class MovieListView extends StatelessWidget {
@@ -133,36 +134,6 @@ class MovieListView extends StatelessWidget {
         image: DecorationImage(
           image: NetworkImage(imageUrl ?? "https://picsum.photos/100"),
           fit: BoxFit.cover,
-        ),
-      ),
-    );
-  }
-}
-
-class MovieListViewDetail extends StatelessWidget {
-  final Movie movie;
-
-  const MovieListViewDetail({Key key, this.movie}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(movie.title),
-        backgroundColor: Colors.black,
-      ),
-      backgroundColor: Colors.black,
-      body: Center(
-        child: Container(
-          child: RaisedButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            child: Text(
-              "Go Back",
-            ),
-            color: Colors.white,
-          ),
         ),
       ),
     );
