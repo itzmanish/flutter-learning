@@ -8,7 +8,7 @@ class TipCalculator extends StatefulWidget {
 
 class _TipCalculatorState extends State<TipCalculator> {
   double _billAmount = 0.0;
-  int _personCounter = 0;
+  int _personCounter = 1;
   int _tipPercent = 0;
   Color _purple = HexColor("#6908d6");
 
@@ -68,6 +68,7 @@ class _TipCalculatorState extends State<TipCalculator> {
                         TextInputType.numberWithOptions(decimal: true),
                     decoration: InputDecoration(
                         prefixText: "Bill Amount ",
+                        labelText: "Bill Amount",
                         focusedBorder: UnderlineInputBorder(
                             borderSide: BorderSide(color: _purple))),
                     cursorColor: _purple,
