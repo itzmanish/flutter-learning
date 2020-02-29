@@ -1,6 +1,8 @@
 import 'package:first/model/movie.dart';
 import 'package:flutter/material.dart';
 
+import 'moviedetails.dart';
+
 class MovieDetailHeaderWithPoster extends StatelessWidget {
   final Movie movie;
 
@@ -48,40 +50,39 @@ class MoviePoster extends StatelessWidget {
   }
 }
 
-class MovieDetailsHeader extends StatelessWidget {
-  final Movie movie;
+class MovieDetailsExtraPoster extends StatelessWidget {
+  final List<String> poster;
 
-  const MovieDetailsHeader({Key key, this.movie}) : super(key: key);
+  const MovieDetailsExtraPoster({Key key, this.poster}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        Text(
-          "${movie.year} . ${movie.genre}".toUpperCase(),
-          style: TextStyle(color: Colors.cyan, fontWeight: FontWeight.w300),
-        ),
-        Text(
-          movie.title,
-          style: TextStyle(
-            fontWeight: FontWeight.w500,
-            fontSize: 30,
-            color: Colors.white,
-          ),
-        ),
-        Text.rich(
-          TextSpan(
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
+          child: Text(
+            "More posters...",
             style: TextStyle(
-                fontSize: 12, fontWeight: FontWeight.w300, color: Colors.white),
-            children: <TextSpan>[
-              TextSpan(text: movie.plot),
-              TextSpan(
-                text: "More...",
-                style: TextStyle(color: Colors.indigoAccent),
-              ),
-            ],
+              color: Colors.white,
+              fontSize: 15,
+            ),
           ),
-        )
+        ),
+        Container(
+          height: 170,
+          padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 8),
+          child: ListView.separated(
+            scrollDirection: Axis.horizontal,
+            separatorBuilder: (context, index) => SizedBox(
+              width: 6,
+            ),
+            itemCount: poster.length,
+            itemBuilder: (context, index) => MoviePoster(
+              posterUrl: poster[index],
+            ),
+          ),
+        ),
       ],
     );
   }
